@@ -1,0 +1,26 @@
+module jkff_tb;
+reg clk,rst,j,k;
+wire q;
+wire qb;
+jkff uut (clk,rst,j,k,q,qb);
+initial
+begin
+j=0;
+k=0;
+clk=0;
+rst=1;
+#10;
+rst=0;
+#10;
+j=0;
+k=1;
+#10;
+j=1;
+k=0;
+#10;
+j=1;
+k=1;
+#10;
+end
+always #5 clk=~clk;
+endmodule
