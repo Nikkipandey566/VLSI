@@ -1,0 +1,26 @@
+module sr latch_tb;
+reg en,rst,s,r;
+wire q;
+wire qb;
+srff uut(en,rst,s,r,q,qb);
+initial
+begin
+s=0;
+r=0;
+en=1;
+rst=1;
+#10;
+en=1;
+rst=0;
+#10;
+s=0;
+r=1;
+#10;
+s=1;
+r=0;
+#10;
+s=1;
+r=1;
+#10;
+end
+endmodule

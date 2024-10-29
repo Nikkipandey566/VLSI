@@ -1,0 +1,20 @@
+module jk latch (en,rst,j,k,q,qb);
+input en,rst,j,k;
+output reg q;
+output qb;
+always @ (en,rst,j,k)
+begin
+if (rst)
+q<=0;
+else if(en)
+case ({j,k})
+2'b00:q<=q;
+2'b01:q<=1'b0;
+2'b10:q<=1'b1;
+2'b11:q<=~q;
+end case
+else
+q<=q;
+end
+assign qb=~q;
+endmodule

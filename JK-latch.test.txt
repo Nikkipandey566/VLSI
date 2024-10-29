@@ -1,0 +1,26 @@
+module jk latch_tb;
+reg en,rst,j,k;
+wire q;
+wire qb;
+jk latch uut (en,rst,j,k,q,qb);
+initial
+begin
+j=0;
+k=0;
+en=0;
+rst=1;
+#10;
+en=1;
+rst=0;
+#10;
+j=0;
+k=1;
+#10;
+j=1;
+k=0;
+#10;
+j=1;
+k=1;
+#10;
+end
+endmodule
